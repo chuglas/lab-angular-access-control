@@ -1,0 +1,35 @@
+<p>
+  log-form-component works!
+</p>
+
+<!--<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>-->
+
+  <div class="form-group">
+     <label for="person">Person</label>
+     <input type="text" class="form-control" id="person"
+          [(ngModel)]="log.person" name="person"
+          #person="ngModel" #personInput>
+     <div [hidden]="!person.pristine" class="alert alert-danger">
+          Person is required
+     </div>
+   </div>
+
+   <div class="form-group">
+    <label for="message">Message</label>
+    <input type="text" class="form-control" id="message"
+           [(ngModel)]="log.message" name="message"
+           #message="ngModel" #messageInput>
+     <div [hidden]="!message.pristine" class="alert alert-danger">
+          Person is required
+     </div>
+  </div>
+
+  <button (click)="addThis(log.person, log.message)">Add Log</button>
+
+  <div [hidden]="!form == submitted" class="alert alert">
+      Log Added
+  </div>
+
+<!--</form>-->
+
+<button (click)="showLogs()">SHOW LOGS</button>
